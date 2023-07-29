@@ -1,0 +1,107 @@
+frame header
+(size)
+???????? ????????
+
+(origin, tagged, addressable, protocol)
+00010100 00000000
+00000000 00010100 (endian!)
+
+(source)
+00000000 00000000 00000000 00000000?
+
+frame address
+(target address)
+d0 73 d5 29 ca 2f
+11010000 01110011 11010101 00101001 11001010 00101111 00000000 00000000
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+
+(reserved)
+00000000 00000000 00000000 00000000 00000000 00000000
+
+(reserved, ack, res)
+00000010
+
+(sequence)
+00000000
+
+protocol header
+(reserved)
+00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+
+(type)
+102: setcolor
+00000000 01100110
+01100110 00000000 (endian)
+
+(reserved)
+00000000 00000000
+
+
+
+payload
+(reserved)
+00000000
+
+(hue)
+01010101 01010101
+
+(saturation)
+11111111 11111111
+
+(brightness)
+11111111 11111111
+
+(kelvin)
+10101100 00001101
+
+(duration)
+00000000 00000000 00000000 00000000
+
+
+
+
+
+HEADER
+31 00 (size)
+00 14 (origin, tagged, addressable, protocol)
+00 00 00 00 (source)
+
+FRAME ADDRESS
+d0 73 d5 29 ca 2f 00 00 (target address)
+00 00 00 00 00 00 (reserved)
+02 (reserved, ack, res)
+00 (sequence)
+
+PROTOCOL HEADER
+00 00 00 00 00 00 00 00 (reserved)
+66 00 (type: setcolor)
+00 00 (reserved)
+
+PAYLOAD
+00 (reserved)
+55 55 (hue)
+ff ff (saturation)
+ff ff (brightness)
+ac 0d (kelvin)
+00 00 00 00 (duration)
+
+
+
+3100
+0014
+00000000
+d073d529ca2f0000
+000000000000
+02
+00
+0000000000000000
+6600
+0000
+00
+5555
+ffff
+ffff
+ac0d
+00000000
+
+3100001402000000d073d529ca2f00000000000000000201000000000000000066000000005555ffffffffac0d00000000
