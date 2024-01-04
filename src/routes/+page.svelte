@@ -1,11 +1,21 @@
-<script lang='ts'>
-  import { invoke } from '@tauri-apps/api/tauri'
-
-  async function setPower(status: Boolean) {
-    return await invoke('set_power', { status })
-  }
-
+<script lang="ts">
+    import devicesJson from "../lib/data/devices.json"
+    import LightItem from "$lib/components/LightItem.svelte"
+    
+    interface Device {
+        name: string,
+        mac: string,
+        ip: string
+    }
+    
+    let devices: Device[] = devicesJson
+    
 </script>
 
-<button on:click={() => setPower(true)}>LIGHT ON</button>
-<button on:click={() => setPower(false)}>LIGHT OFF</button>
+<main style="padding: 1.5em;">
+    <h1>Light Controller</h1>
+
+    {#each devices as device}
+        <LightItem macAddress={device.mac} lightName={device.name} />
+    {/each}
+</main>
