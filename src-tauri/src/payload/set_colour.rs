@@ -4,7 +4,7 @@ pub const SET_COLOUR_CONFIG_SIZE: usize = 13;
 
 bitfield! {
     #[derive(Debug, Default)]
-    pub struct SetColourConfig(MSB0 [u8]);
+    pub struct SetColourConfig([u8]);
     u16;
 
     // Bits 0-7 are reserved
